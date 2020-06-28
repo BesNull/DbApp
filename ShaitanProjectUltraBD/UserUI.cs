@@ -53,9 +53,12 @@ namespace ShaitanProjectUltraBD
         {
             try
             {
-                SearchAdapter = new SqlDataAdapter("Select * from Basket where OrderID=@OrderID", sqlConnection);
+                SearchAdapter = new SqlDataAdapter("Select ProductName, [Basket].BasketID, [Basket].OrderID, Quantity, Sum from [Basket],[Orders], [Products]" +
+                    " where [Basket].ProductID = [Products].ProductID and [Orders].OrderID = [Basket].OrderID and [Pioneer_nickname]=@Pioneer_nickname and [Orders].OrderID=@OrderID", sqlConnection);
+                //
+                SearchAdapter.SelectCommand.Parameters.AddWithValue("Pioneer_nickname", NickBox.Text);
                 SearchAdapter.SelectCommand.Parameters.AddWithValue("OrderID", OrderSearchBox.Text);
-                SearchBuilder = new SqlCommandBuilder(MyOrdersAdapter);
+                SearchBuilder = new SqlCommandBuilder(SearchAdapter);
 
                 SearchSet = new DataSet();
 
@@ -283,12 +286,14 @@ namespace ShaitanProjectUltraBD
 
         private void ExitProfileButton_Click(object sender, EventArgs e)
         {
-            Hide();
-            Login f0 = new Login();
-            f0.ConBox.Text = this.linkdb;
+            //Hide();
+           // Login f0 = new Login();
+         //   f0.ConBox.Text = this.linkdb;
             sqlConnection.Close();
-            f0.ShowDialog();
-            this.Close();
+            //  f0.ShowDialog();
+            this.Dispose(true);
+          //  this.Close();
+           // this.Dispose();
         }
 
         private async void OrderButton_Click(object sender, EventArgs e)

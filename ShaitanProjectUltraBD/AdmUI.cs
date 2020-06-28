@@ -99,12 +99,13 @@ namespace ShaitanProjectUltraBD
 
         private void ExitAdmAcc_Click(object sender, EventArgs e)
         {
-            Hide();
-            Login f0 = new Login();
-            f0.ConBox.Text = this.linkdb;
+         //   Hide();
+          //  Login f0 = new Login();
+            //f0.ConBox.Text = this.linkdb;
             sqlConnection2.Close();
-            f0.ShowDialog(); 
-            this.Close();
+           // f0.ShowDialog();
+            this.Dispose(true);
+           // this.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
