@@ -1,0 +1,15 @@
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\bin\Debug\Database1.mdf
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\bin\Debug\Database1_log.ldf
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\bin\Debug\ShaitanProjectUltraBD.exe.config
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\bin\Debug\ShaitanProjectUltraBD.exe
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\bin\Debug\ShaitanProjectUltraBD.pdb
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\obj\Debug\ShaitanProjectUltraBD.csprojAssemblyReference.cache
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\obj\Debug\ShaitanProjectUltraBD.Properties.Resources.resources
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\obj\Debug\ShaitanProjectUltraBD.csproj.GenerateResource.cache
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\obj\Debug\ShaitanProjectUltraBD.csproj.CoreCompileInputs.cache
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\obj\Debug\ShaitanProjectUltraBD.exe
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\obj\Debug\ShaitanProjectUltraBD.pdb
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\obj\Debug\ShaitanProjectUltraBD.Login.resources
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\obj\Debug\ShaitanProjectUltraBD.UserUI.resources
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\obj\Debug\ShaitanProjectUltraBD.AdmUI.resources
+C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\obj\Debug\ShaitanProjectUltraBD.OrderUI.resources
