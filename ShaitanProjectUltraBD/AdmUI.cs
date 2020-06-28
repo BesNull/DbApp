@@ -235,6 +235,10 @@ namespace ShaitanProjectUltraBD
             }
         }
 
-       
+        private void AdmUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            sqlConnection2.Close();
+            this.Dispose(true);
+        }
     }
 }

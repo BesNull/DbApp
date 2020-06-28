@@ -317,6 +317,7 @@
             this.Controls.Add(this.label1);
             this.Name = "UserUI";
             this.Text = "UserUI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserUI_FormClosing);
             this.Load += new System.EventHandler(this.UserUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

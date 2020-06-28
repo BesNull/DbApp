@@ -568,6 +568,12 @@ namespace ShaitanProjectUltraBD
         {
             ProductsLoadData();
         }
+
+        private void UserUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            sqlConnection.Close();
+            this.Dispose(true);
+        }
     }
 
    

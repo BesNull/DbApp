@@ -28,7 +28,7 @@ namespace ShaitanProjectUltraBD
         private async void Form1_Load(object sender, EventArgs e)
         {
             //NickAdmBox.Text = "ZloyDux1"; 
-            //ConBox.Text = @"C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\Database1.mdf";
+            ConBox.Text = @"C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\Database1.mdf";
             
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+ ConBox.Text.ToString() +";Integrated Security=True";
             sqlConnection1 = new SqlConnection(connectionString);
@@ -89,12 +89,13 @@ namespace ShaitanProjectUltraBD
             {
                 if (passbd == pass)
                 {
-                //this.Hide();
+                Visible = false;
                 UserUI f1 = new UserUI();
                 f1.NickBox.Text = this.NickBox.Text;
                 f1.linkdb = this.ConBox.Text;
                // sqlConnection1.Close();
                 f1.ShowDialog();
+                Visible = true;
                 //this.Close();
                 }
                 else
@@ -166,11 +167,12 @@ namespace ShaitanProjectUltraBD
             {
                 if (passbd == pass)
                 {
-                    //Hide();
+                    Visible = false;
                     AdmUI f2 = new AdmUI();
                     f2.NickAdmBox.Text = this.NickAdmBox.Text;
                     f2.linkdb = this.ConBox.Text;
                     f2.ShowDialog();
+                    Visible = true;
                     //this.Close();
                 }
                 else
