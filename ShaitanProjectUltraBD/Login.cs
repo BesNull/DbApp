@@ -95,6 +95,7 @@ namespace ShaitanProjectUltraBD
                 f1.linkdb = this.ConBox.Text;
                // sqlConnection1.Close();
                 f1.ShowDialog();
+                f1.Dispose();
                 Visible = true;
                 //this.Close();
                 }
@@ -172,6 +173,7 @@ namespace ShaitanProjectUltraBD
                     f2.NickAdmBox.Text = this.NickAdmBox.Text;
                     f2.linkdb = this.ConBox.Text;
                     f2.ShowDialog();
+                    f2.Dispose();
                     Visible = true;
                     //this.Close();
                 }

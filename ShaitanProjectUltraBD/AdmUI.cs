@@ -19,6 +19,7 @@ namespace ShaitanProjectUltraBD
         private DataSet dataSet = null;
         public string linkdb;
         bool check = false;
+        bool f = false;
         private bool newRowAdding = false;
 
 
@@ -103,8 +104,9 @@ namespace ShaitanProjectUltraBD
           //  Login f0 = new Login();
             //f0.ConBox.Text = this.linkdb;
             sqlConnection2.Close();
-           // f0.ShowDialog();
-            this.Dispose(true);
+            // f0.ShowDialog();
+            f = true;
+            this.Close();
            // this.Close();
         }
 
@@ -237,8 +239,7 @@ namespace ShaitanProjectUltraBD
 
         private void AdmUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            sqlConnection2.Close();
-            this.Dispose(true);
+            if (!f) { sqlConnection2.Close(); this.Close(); }
         }
     }
 }

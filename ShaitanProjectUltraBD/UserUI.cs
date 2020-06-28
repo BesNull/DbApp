@@ -43,6 +43,7 @@ namespace ShaitanProjectUltraBD
         int countBaskets;
         int BasketNum;
         int OrdNum;
+        bool f=false;
        
         public UserUI()
         {
@@ -291,7 +292,8 @@ namespace ShaitanProjectUltraBD
          //   f0.ConBox.Text = this.linkdb;
             sqlConnection.Close();
             //  f0.ShowDialog();
-            this.Dispose(true);
+            f = true;
+            this.Close();
           //  this.Close();
            // this.Dispose();
         }
@@ -571,11 +573,7 @@ namespace ShaitanProjectUltraBD
 
         private void UserUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            sqlConnection.Close();
-            this.Dispose(true);
+            if (!f) { sqlConnection.Close(); this.Close(); }
         }
     }
-
-   
-    
 }
