@@ -49,6 +49,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ChangeDB = new System.Windows.Forms.Button();
+            this.ConBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.PassAdmBox = new System.Windows.Forms.TextBox();
@@ -56,8 +58,6 @@
             this.LoginAdmButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.ConBox = new System.Windows.Forms.TextBox();
-            this.ChangeDB = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -250,6 +250,23 @@
             this.panel2.Size = new System.Drawing.Size(800, 235);
             this.panel2.TabIndex = 23;
             // 
+            // ChangeDB
+            // 
+            this.ChangeDB.Location = new System.Drawing.Point(647, 200);
+            this.ChangeDB.Name = "ChangeDB";
+            this.ChangeDB.Size = new System.Drawing.Size(127, 23);
+            this.ChangeDB.TabIndex = 8;
+            this.ChangeDB.Text = "MatrixDB connection";
+            this.ChangeDB.UseVisualStyleBackColor = true;
+            this.ChangeDB.Click += new System.EventHandler(this.ChangeDB_Click);
+            // 
+            // ConBox
+            // 
+            this.ConBox.Location = new System.Drawing.Point(31, 203);
+            this.ConBox.Name = "ConBox";
+            this.ConBox.Size = new System.Drawing.Size(583, 20);
+            this.ConBox.TabIndex = 7;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -314,23 +331,6 @@
             this.label13.TabIndex = 24;
             this.label13.Text = " For Admin account pls call the devil";
             // 
-            // ConBox
-            // 
-            this.ConBox.Location = new System.Drawing.Point(31, 203);
-            this.ConBox.Name = "ConBox";
-            this.ConBox.Size = new System.Drawing.Size(583, 20);
-            this.ConBox.TabIndex = 7;
-            // 
-            // ChangeDB
-            // 
-            this.ChangeDB.Location = new System.Drawing.Point(661, 200);
-            this.ChangeDB.Name = "ChangeDB";
-            this.ChangeDB.Size = new System.Drawing.Size(75, 23);
-            this.ChangeDB.TabIndex = 8;
-            this.ChangeDB.Text = "ChangeDB";
-            this.ChangeDB.UseVisualStyleBackColor = true;
-            this.ChangeDB.Click += new System.EventHandler(this.ChangeDB_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,6 +357,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);

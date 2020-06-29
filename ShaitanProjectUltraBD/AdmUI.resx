@@ -122,6 +122,6 @@
 
 If you want to update the row, you need to click "Enter" after editing a row. And then you should click on "Update" link.
 
-Its not necessary to fill the column "Leader_nickname" and "ProductID". The columns fiils automatically with the name of active Admin</value>
+Its not necessary to fill the column "Leader_nickname", "ProductID" and "Create_Date". The columns fiils automatically with the name of active Admin</value>
   </data>
 </root>

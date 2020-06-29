@@ -33,7 +33,21 @@ namespace ShaitanProjectUltraBD
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+ ConBox.Text.ToString() +";Integrated Security=True";
             sqlConnection1 = new SqlConnection(connectionString);
             await sqlConnection1.OpenAsync();
-     
+
+            NickAdmBox.Enabled = false;
+            NickBox.Enabled = false;
+            NickRegBox.Enabled = false;
+            FIOBox.Enabled = false;
+            PhoneBox.Enabled = false;
+            EmailBox.Enabled = false;
+            PassAdmBox.Enabled = false;
+            PassBox.Enabled = false;
+            PassRegBox.Enabled = false;
+            LoginAdmButton.Enabled = false;
+            LoginButton.Enabled = false;
+            RegisterButton.Enabled = false;
+            MessageBox.Show("Enter the matrixdb");
+
             // SqlCommand command = new SqlCommand("Select Password from [Users]", sqlConnection);
         }
 
@@ -50,7 +64,40 @@ namespace ShaitanProjectUltraBD
 
             try { await sqlConnection1.OpenAsync(); } catch { MessageBox.Show("No db this path", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
-            if (sqlConnection1.State.ToString() == "Open") MessageBox.Show("Connection OK","Connection check", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (sqlConnection1.State.ToString() == "Open")
+            {
+                NickAdmBox.Enabled = true;
+                NickBox.Enabled = true;
+                NickRegBox.Enabled = true;
+                FIOBox.Enabled = true;
+                PhoneBox.Enabled = true;
+                EmailBox.Enabled = true;
+                PassAdmBox.Enabled = true;
+                PassBox.Enabled = true;
+                PassRegBox.Enabled = true;
+                // ConBox.Enabled = false;
+                LoginAdmButton.Enabled = true;
+                LoginButton.Enabled = true;
+                RegisterButton.Enabled = true;
+                MessageBox.Show("Connection OK", "Connection check", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                NickAdmBox.Enabled = false;
+                NickBox.Enabled = false;
+                NickRegBox.Enabled = false;
+                FIOBox.Enabled = false;
+                PhoneBox.Enabled = false;
+                EmailBox.Enabled = false;
+                PassAdmBox.Enabled = false;
+                PassBox.Enabled = false;
+                PassRegBox.Enabled = false;
+                LoginAdmButton.Enabled = false;
+                LoginButton.Enabled = false;
+                RegisterButton.Enabled = false;
+                MessageBox.Show("Connection Error", "Connection check", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+                
 
 
         }
@@ -95,6 +142,7 @@ namespace ShaitanProjectUltraBD
                 f1.linkdb = this.ConBox.Text;
                // sqlConnection1.Close();
                 f1.ShowDialog();
+                    //this.Dispose(true);
                 f1.Dispose();
                 Visible = true;
                 //this.Close();
@@ -117,9 +165,9 @@ namespace ShaitanProjectUltraBD
                 await sqlConnection1.OpenAsync();
             }
             string check = string.Empty;
-            if (string.IsNullOrWhiteSpace(NickRegBox.Text))// && FIOBox.TextLength!=0 && PhoneBox.TextLength != 0 && EmailBox.TextLength != 0 && PassBox.TextLength != 0)
+            if (string.IsNullOrWhiteSpace(NickRegBox.Text) && string.IsNullOrWhiteSpace(PassRegBox.Text))// && FIOBox.TextLength!=0 && PhoneBox.TextLength != 0 && EmailBox.TextLength != 0 && PassBox.TextLength != 0)
             {
-                MessageBox.Show("Не все поля заполнены");
+                MessageBox.Show("Nick or Password not entered");
                
             }
             else

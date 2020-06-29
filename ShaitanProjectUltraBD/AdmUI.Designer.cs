@@ -41,7 +41,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(25, 25);
+            this.label1.Location = new System.Drawing.Point(38, 35);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 25);
             this.label1.TabIndex = 0;
@@ -49,16 +50,18 @@
             // 
             // NickAdmBox
             // 
-            this.NickAdmBox.Location = new System.Drawing.Point(220, 31);
+            this.NickAdmBox.Location = new System.Drawing.Point(330, 43);
+            this.NickAdmBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.NickAdmBox.Name = "NickAdmBox";
-            this.NickAdmBox.Size = new System.Drawing.Size(100, 20);
+            this.NickAdmBox.Size = new System.Drawing.Size(148, 24);
             this.NickAdmBox.TabIndex = 1;
             // 
             // ExitAdmAcc
             // 
-            this.ExitAdmAcc.Location = new System.Drawing.Point(30, 486);
+            this.ExitAdmAcc.Location = new System.Drawing.Point(45, 673);
+            this.ExitAdmAcc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ExitAdmAcc.Name = "ExitAdmAcc";
-            this.ExitAdmAcc.Size = new System.Drawing.Size(75, 23);
+            this.ExitAdmAcc.Size = new System.Drawing.Size(112, 32);
             this.ExitAdmAcc.TabIndex = 2;
             this.ExitAdmAcc.Text = "ExitAccount";
             this.ExitAdmAcc.UseVisualStyleBackColor = true;
@@ -67,33 +70,38 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 146);
+            this.dataGridView1.Location = new System.Drawing.Point(45, 202);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(758, 325);
+            this.dataGridView1.Size = new System.Drawing.Size(1137, 450);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.dataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
             this.dataGridView1.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_UserAddedRow);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 68);
+            this.label2.Location = new System.Drawing.Point(40, 94);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(639, 65);
+            this.label2.Size = new System.Drawing.Size(979, 90);
             this.label2.TabIndex = 4;
             this.label2.Text = resources.GetString("label2.Text");
             // 
             // AdmUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 521);
+            this.ClientSize = new System.Drawing.Size(1200, 721);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.ExitAdmAcc);
             this.Controls.Add(this.NickAdmBox);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdmUI";
             this.Text = "AdmUI";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdmUI_FormClosing);

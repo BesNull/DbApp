@@ -355,17 +355,17 @@ namespace ShaitanProjectUltraBD
 
             // MyBasketLoadData();
             DataRow row = AllBasketSet.Tables["Basket"].NewRow();
-          //  DataRow row1 = EmptyBasketSet.Tables["Basket"].NewRow();
-            try
+            //  DataRow row1 = EmptyBasketSet.Tables["Basket"].NewRow();
+            if (!string.IsNullOrWhiteSpace(QuantityBox.Text) && !string.IsNullOrWhiteSpace(ProductIDBox.Text))
             {
                 //if (dataGridView3==null)
-             //   {
-                    dataGridView3.ColumnCount = 3;
-                    dataGridView3.Columns[0].Name = "ProductName";
-                    dataGridView3.Columns[1].Name = "Quantity";
-                    dataGridView3.Columns[2].Name = "Sum";
-            //    }
-            
+                //   {
+                dataGridView3.ColumnCount = 3;
+                dataGridView3.Columns[0].Name = "ProductName";
+                dataGridView3.Columns[1].Name = "Quantity";
+                dataGridView3.Columns[2].Name = "Sum";
+                //    }
+
 
                 //row["BasketID"] = BasketNum + 1;
                 row["OrderID"] = OrdNum; //
@@ -375,29 +375,34 @@ namespace ShaitanProjectUltraBD
 
                 SqlCommand commandAdd1 = new SqlCommand("Select Price from [Products] where [ProductID] = @ProductID", sqlConnection);
                 commandAdd1.Parameters.AddWithValue("@ProductID", SqlDbType.Int).Value = ProductIDBox.Text;
-                decimal price = (decimal)commandAdd1.ExecuteScalar();
-
-                row["Price"] = price;
-                decimal sum = price * int.Parse(QuantityBox.Text);
-                row["Sum"] = sum;
-
-                AllBasketSet.Tables["Basket"].Rows.Add(row);
-
-                string ProductName;
-                commandAdd1 = new SqlCommand("Select ProductName from [Products] where [ProductID] = @ProductID", sqlConnection);
-                commandAdd1.Parameters.AddWithValue("@ProductID", SqlDbType.Int).Value = ProductIDBox.Text;
-                ProductName = commandAdd1.ExecuteScalar().ToString();
+                if (commandAdd1.ExecuteScalar() != null)
+                {
+                    decimal price = (decimal)commandAdd1.ExecuteScalar();
 
 
-                string[] row1 = new string[] { ProductName, QuantityBox.Text, sum.ToString() };
-                dataGridView3.Rows.Add(row1);
+                    row["Price"] = price;
+                    decimal sum = price * int.Parse(QuantityBox.Text);
+                    row["Sum"] = sum;
 
-                OrderConfirmingButton.Enabled=true;
+                    AllBasketSet.Tables["Basket"].Rows.Add(row);
+
+                    string ProductName;
+                    commandAdd1 = new SqlCommand("Select ProductName from [Products] where [ProductID] = @ProductID", sqlConnection);
+                    commandAdd1.Parameters.AddWithValue("@ProductID", SqlDbType.Int).Value = ProductIDBox.Text;
+                    ProductName = commandAdd1.ExecuteScalar().ToString();
+
+
+                    string[] row1 = new string[] { ProductName, QuantityBox.Text, sum.ToString() };
+                    dataGridView3.Rows.Add(row1);
+
+                    OrderConfirmingButton.Enabled = true;
+                }
+                else
+                    MessageBox.Show("Product not exist. Open your eyes");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "dasdasd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            else
+                MessageBox.Show("ProductdID or Quantity empty");
+            
         }
 
 
@@ -573,7 +578,7 @@ namespace ShaitanProjectUltraBD
 
         private void UserUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!f) { sqlConnection.Close(); this.Close(); }
+            if (!f) { sqlConnection.Close(); }
         }
     }
 }

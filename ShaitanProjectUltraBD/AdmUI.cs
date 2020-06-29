@@ -135,14 +135,14 @@ namespace ShaitanProjectUltraBD
                     {
                        // if (dataGridView1.Rows.Count )
                             int rowIndex = dataGridView1.Rows.Count - 2;
-                     
+                            DateTime start = DateTime.Now;
                             DataRow row = dataSet.Tables["Products"].NewRow();
                             try { 
-                            row["ProductID"] = dataGridView1.Rows[rowIndex].Cells["ProductID"].Value; //
+                           // row["ProductID"] = dataGridView1.Rows[rowIndex].Cells["ProductID"].Value; //
                             row["ProductName"] = dataGridView1.Rows[rowIndex].Cells["ProductName"].Value;
                             row["Price"] = dataGridView1.Rows[rowIndex].Cells["Price"].Value;
                             row["Leader_nickname"] = dataGridView1.Rows[rowIndex].Cells["Leader_nickname"].Value = NickAdmBox.Text;
-                            row["Create_Date"] = dataGridView1.Rows[rowIndex].Cells["Create_date"].Value;
+                            row["Create_Date"] = dataGridView1.Rows[rowIndex].Cells["Create_date"].Value = start;
 
                             dataSet.Tables["Products"].Rows.Add(row);
 
@@ -155,7 +155,7 @@ namespace ShaitanProjectUltraBD
                             sqlDataAdapter.Update(dataSet, "Products");
                               }
                             catch (Exception ex){
-                            MessageBox.Show(ex.Message, "cranti", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                           //  newRowAdding = false;
                             }
                       
@@ -165,21 +165,21 @@ namespace ShaitanProjectUltraBD
                     else if (task == "Update")
                     {
                         int r = e.RowIndex;
-
+                        DateTime start1 = DateTime.Now;
                         try
                         {
-                            dataSet.Tables["Products"].Rows[r]["ProductID"] = dataGridView1.Rows[r].Cells["ProductID"].Value; //
+                            //dataSet.Tables["Products"].Rows[r]["ProductID"] = dataGridView1.Rows[r].Cells["ProductID"].Value; //
                             dataSet.Tables["Products"].Rows[r]["ProductName"] = dataGridView1.Rows[r].Cells["ProductName"].Value;
                             dataSet.Tables["Products"].Rows[r]["Price"] = dataGridView1.Rows[r].Cells["Price"].Value;
                             dataSet.Tables["Products"].Rows[r]["Leader_nickname"] = dataGridView1.Rows[r].Cells["Leader_nickname"].Value = NickAdmBox.Text;
-                            dataSet.Tables["Products"].Rows[r]["Create_Date"] = dataGridView1.Rows[r].Cells["Create_date"].Value;
+                            dataSet.Tables["Products"].Rows[r]["Create_Date"] = dataGridView1.Rows[r].Cells["Create_date"].Value = start1;
 
                             sqlDataAdapter.Update(dataSet, "Products");
                             dataGridView1.Rows[e.RowIndex].Cells[5].Value = "Delete"; 
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.Message, "cranti", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
 
@@ -239,7 +239,30 @@ namespace ShaitanProjectUltraBD
 
         private void AdmUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!f) { sqlConnection2.Close(); this.Close(); }
+            if (!f) { sqlConnection2.Close();}
+        }
+
+        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column_KeyPress); //отписываем событие
+            //Колонка Price, проверка на ввод чисел. Т.е. нажатия на цифры обрабатываем, на буквы не обрабатываем.
+            if (dataGridView1.CurrentCell.ColumnIndex == 2)
+            {
+                TextBox textBox = e.Control as TextBox;
+                 if (textBox!= null)
+                {
+                    textBox.KeyPress += new KeyPressEventHandler(Column_KeyPress);
+                }         
+            }
+        }
+
+        private void Column_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            
         }
     }
 }
