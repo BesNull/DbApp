@@ -31,6 +31,7 @@ namespace ShaitanProjectUltraBD
             ConBox.Text = @"C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\Database1.mdf";
             
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+ ConBox.Text.ToString() +";Integrated Security=True";
+           // string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + "fsdfsdfsd" + ";Integrated Security=True";
             sqlConnection1 = new SqlConnection(connectionString);
             await sqlConnection1.OpenAsync();
 
@@ -53,50 +54,54 @@ namespace ShaitanProjectUltraBD
 
         private async void ChangeDB_Click(object sender, EventArgs e)
         {
-            linkdb = ConBox.Text; //.ToString();
-                                  //ConBox.Text = linkdb;
-            if (sqlConnection1.State.ToString() == "Open")
+            if (!string.IsNullOrWhiteSpace(ConBox.Text))
             {
-                sqlConnection1.Close();
-            }
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @linkdb + ";Integrated Security=True";
-            sqlConnection1 = new SqlConnection(connectionString);
+                linkdb = ConBox.Text; //.ToString();
+                                      //ConBox.Text = linkdb;
+                if (sqlConnection1.State.ToString() == "Open")
+                {
+                    sqlConnection1.Close();
+                }
+                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @linkdb + ";Integrated Security=True";
+                sqlConnection1 = new SqlConnection(connectionString);
 
-            try { await sqlConnection1.OpenAsync(); } catch { MessageBox.Show("No db this path", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
-            if (sqlConnection1.State.ToString() == "Open")
-            {
-                NickAdmBox.Enabled = true;
-                NickBox.Enabled = true;
-                NickRegBox.Enabled = true;
-                FIOBox.Enabled = true;
-                PhoneBox.Enabled = true;
-                EmailBox.Enabled = true;
-                PassAdmBox.Enabled = true;
-                PassBox.Enabled = true;
-                PassRegBox.Enabled = true;
-                // ConBox.Enabled = false;
-                LoginAdmButton.Enabled = true;
-                LoginButton.Enabled = true;
-                RegisterButton.Enabled = true;
-                MessageBox.Show("Connection OK", "Connection check", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try { await sqlConnection1.OpenAsync(); } catch { MessageBox.Show("No db this path", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                if (sqlConnection1.State.ToString() == "Open")
+                {
+                    NickAdmBox.Enabled = true;
+                    NickBox.Enabled = true;
+                    NickRegBox.Enabled = true;
+                    FIOBox.Enabled = true;
+                    PhoneBox.Enabled = true;
+                    EmailBox.Enabled = true;
+                    PassAdmBox.Enabled = true;
+                    PassBox.Enabled = true;
+                    PassRegBox.Enabled = true;
+                    // ConBox.Enabled = false;
+                    LoginAdmButton.Enabled = true;
+                    LoginButton.Enabled = true;
+                    RegisterButton.Enabled = true;
+                    MessageBox.Show("Connection OK", "Connection check", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    NickAdmBox.Enabled = false;
+                    NickBox.Enabled = false;
+                    NickRegBox.Enabled = false;
+                    FIOBox.Enabled = false;
+                    PhoneBox.Enabled = false;
+                    EmailBox.Enabled = false;
+                    PassAdmBox.Enabled = false;
+                    PassBox.Enabled = false;
+                    PassRegBox.Enabled = false;
+                    LoginAdmButton.Enabled = false;
+                    LoginButton.Enabled = false;
+                    RegisterButton.Enabled = false;
+                    MessageBox.Show("Connection Error", "Connection check", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
-                NickAdmBox.Enabled = false;
-                NickBox.Enabled = false;
-                NickRegBox.Enabled = false;
-                FIOBox.Enabled = false;
-                PhoneBox.Enabled = false;
-                EmailBox.Enabled = false;
-                PassAdmBox.Enabled = false;
-                PassBox.Enabled = false;
-                PassRegBox.Enabled = false;
-                LoginAdmButton.Enabled = false;
-                LoginButton.Enabled = false;
-                RegisterButton.Enabled = false;
-                MessageBox.Show("Connection Error", "Connection check", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            else { MessageBox.Show("Empty string", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 
 
 
