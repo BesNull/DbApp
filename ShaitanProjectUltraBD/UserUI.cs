@@ -306,6 +306,7 @@ namespace ShaitanProjectUltraBD
 
         private async void OrderButton_Click(object sender, EventArgs e)
         {
+            ChangeProfileButton.Enabled = false;
             DateTime start = DateTime.Now;
             ReloadOrdersData();
             dataGridView3.DataSource = null;
@@ -317,7 +318,7 @@ namespace ShaitanProjectUltraBD
                 await sqlConnection.OpenAsync();
             }
 
-            DataRow row = OrdersSet.Tables["Orders"].NewRow();
+            DataRow row = OrdersSet.Tables["Orders"].NewRow();  //Интересное наблюдение, если несколько раз жать на кнопку , то функция всегда будет перезаписывать последнюю строку в OrderSet
             try
             {
                 countOrders = OrdersSet.Tables["Orders"].Rows.Count - 1; // т.к. строки считаются с 0
@@ -329,7 +330,7 @@ namespace ShaitanProjectUltraBD
                 row["Pioneer_nickname"]  = NickBox.Text;
                 row["OrderDate"] = start;
 
-                OrdersSet.Tables["Orders"].Rows.Add(row);
+                OrdersSet.Tables["Orders"].Rows.Add(row);   // В OrderSet все заказы
 
             }
             catch (Exception ex)
@@ -339,7 +340,8 @@ namespace ShaitanProjectUltraBD
             }
 
             //  ReloadOrdersData();
-            dataGridView2.DataSource = dataSet1.Tables["Orders"];
+          //  dataGridView2.DataSource = OrdersSet.Tables["Orders"];
+            dataGridView2.DataSource = dataSet1.Tables["Orders"]; // в dataSet1 именно заказы юзера
 
             countOrders = OrdersSet.Tables["Orders"].Rows.Count - 1; // т.к. строки считаются с 0, +1 строку добавляет datagridview
 
@@ -516,6 +518,7 @@ namespace ShaitanProjectUltraBD
                     BasketAddButton.Enabled = false;
                     OrderSearchButton.Enabled = true;
                     DeleteOrderButton.Enabled = true;
+                    ChangeProfileButton.Enabled = true;
                     dataGridView3.Columns.Clear();
                     dataGridView3.Rows.Clear();
                     dataGridView3.Refresh();
@@ -538,6 +541,7 @@ namespace ShaitanProjectUltraBD
                 BasketAddButton.Enabled = false;
                 OrderSearchButton.Enabled = true;
                 DeleteOrderButton.Enabled = true;
+                ChangeProfileButton.Enabled = true;
             }
         }
 
