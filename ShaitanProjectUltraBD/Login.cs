@@ -28,7 +28,7 @@ namespace ShaitanProjectUltraBD
         private async void Form1_Load(object sender, EventArgs e)
         {
             //NickAdmBox.Text = "ZloyDux1"; 
-            ConBox.Text = @"C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\Database1.mdf";
+         //   ConBox.Text = @"C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\Database1.mdf";
             
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+ ConBox.Text.ToString() +";Integrated Security=True";
            // string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + "fsdfsdfsd" + ";Integrated Security=True";

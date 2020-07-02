@@ -222,6 +222,7 @@ namespace ShaitanProjectUltraBD
             ChangeProfileButton.Enabled = false;
             SaveProfileButton.Enabled = true;
             DiscardChangesProfile.Enabled = true;
+            OrderButton.Enabled = false;
                 //   updatecom.Parameters.Add("@Password", SqlDbType.NVarChar).Value = PassBox.Text;
                 // updatecom.Connection.Open();
                 //  updatecom.ExecuteNonQuery();
@@ -229,8 +230,10 @@ namespace ShaitanProjectUltraBD
 
         private async void SaveProfileButton_Click(object sender, EventArgs e)
         {
-            await sqlConnection.OpenAsync();
-
+            if (sqlConnection.State.ToString() == "Closed")
+            {
+                await sqlConnection.OpenAsync();
+            }
             SqlCommand updatecom = new SqlCommand("UPDATE [Users] SET [FIO]=@FIO, [Phone]=@Phone, [Email]=@Email WHERE [Nickname]=@Nickname", sqlConnection);
             updatecom.Parameters.AddWithValue("Nickname", NickBox.Text);
 
@@ -254,14 +257,16 @@ namespace ShaitanProjectUltraBD
             PhoneBox.Enabled = false;
             EmailBox.Enabled = false;
             PassBox.Enabled = false;
+            OrderButton.Enabled = true;
             PassBox.Clear();
         }
 
         private async void DiscardChangesProfile_Click(object sender, EventArgs e)
         {
-
-            await sqlConnection.OpenAsync();
-
+            if (sqlConnection.State.ToString() == "Closed")
+            {
+                await sqlConnection.OpenAsync();
+            }
             reader = null;
 
             commandnick = new SqlCommand("Select * from [Users] where [Nickname] = @Nickname", sqlConnection);
@@ -282,6 +287,7 @@ namespace ShaitanProjectUltraBD
             PhoneBox.Enabled = false;
             EmailBox.Enabled = false;
             PassBox.Enabled = false;
+            OrderButton.Enabled = true;
             PassBox.Clear();
         }
 
