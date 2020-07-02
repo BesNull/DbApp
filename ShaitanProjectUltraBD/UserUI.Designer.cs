@@ -62,6 +62,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -178,9 +179,9 @@
             // 
             // OrderButton
             // 
-            this.OrderButton.Location = new System.Drawing.Point(162, 257);
+            this.OrderButton.Location = new System.Drawing.Point(174, 339);
             this.OrderButton.Name = "OrderButton";
-            this.OrderButton.Size = new System.Drawing.Size(112, 23);
+            this.OrderButton.Size = new System.Drawing.Size(100, 23);
             this.OrderButton.TabIndex = 14;
             this.OrderButton.Text = "Create an order";
             this.OrderButton.UseVisualStyleBackColor = true;
@@ -367,11 +368,21 @@
             this.label11.TabIndex = 34;
             this.label11.Text = "Products ";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(989, 48);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(160, 13);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "Empty string = Show all products";
+            // 
             // UserUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1418, 657);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -454,5 +465,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }
