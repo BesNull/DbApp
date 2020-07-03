@@ -16,6 +16,7 @@ namespace ShaitanProjectUltraBD
         SqlConnection sqlConnection1;
         SqlCommand commandnick;
         SqlCommand commandpass;
+       // string connectionString;
         // string linkdb;
         // string linkdb = @"C:\db\Database1.mdf";
         public string linkdb;// = @"C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\Database1.mdf";
@@ -28,12 +29,12 @@ namespace ShaitanProjectUltraBD
         private async void Form1_Load(object sender, EventArgs e)
         {
             //NickAdmBox.Text = "ZloyDux1"; 
-            ConBox.Text = @"C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\Database1.mdf";
+           // ConBox.Text = @"C:\Users\GoodPC\Desktop\Unich Mazatrucka v6441\4 kurs 2 sem\БД курсач\ShaitanProjectUltraBD\ShaitanProjectUltraBD\Database1.mdf";
             
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+ ConBox.Text.ToString() +";Integrated Security=True";
+           // string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+ ConBox.Text.ToString() +";Integrated Security=True";
            // string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + "fsdfsdfsd" + ";Integrated Security=True";
-            sqlConnection1 = new SqlConnection(connectionString);
-            await sqlConnection1.OpenAsync();
+           // sqlConnection1 = new SqlConnection(connectionString);  // Тут из-за этого может косяки и ошибки при запуске. Из-за того что будем подлкючаться к пустой строке
+            //await sqlConnection1.OpenAsync();
 
             NickAdmBox.Enabled = false;
             NickBox.Enabled = false;
@@ -58,14 +59,13 @@ namespace ShaitanProjectUltraBD
             {
                 linkdb = ConBox.Text; //.ToString();
                                       //ConBox.Text = linkdb;
+                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + ConBox.Text.ToString() + ";Integrated Security=True";
+                sqlConnection1 = new SqlConnection(connectionString);
                 if (sqlConnection1.State.ToString() == "Open")
                 {
                     sqlConnection1.Close();
                 }
-                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @linkdb + ";Integrated Security=True";
-                sqlConnection1 = new SqlConnection(connectionString);
-
-
+                
                 try { await sqlConnection1.OpenAsync(); } catch { MessageBox.Show("No db this path", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 if (sqlConnection1.State.ToString() == "Open")
                 {
@@ -238,6 +238,13 @@ namespace ShaitanProjectUltraBD
             sqlConnection1.Close();
         }
 
-       
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+          //  if (sqlConnection1.State.ToString() == "Open")
+          //  {
+          //      sqlConnection1.Close();
+          //  }
+        }
     }
 }

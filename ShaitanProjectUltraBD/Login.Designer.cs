@@ -49,6 +49,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.ChangeDB = new System.Windows.Forms.Button();
             this.ConBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -236,6 +237,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.ChangeDB);
             this.panel2.Controls.Add(this.ConBox);
             this.panel2.Controls.Add(this.label12);
@@ -249,6 +251,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 235);
             this.panel2.TabIndex = 23;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.SystemColors.Control;
+            this.label14.Location = new System.Drawing.Point(28, 187);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(122, 13);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Disk:\\...\\Database1.mdf";
             // 
             // ChangeDB
             // 
@@ -359,6 +371,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -401,6 +414,7 @@
         private System.Windows.Forms.Label label13;
         public System.Windows.Forms.TextBox ConBox;
         private System.Windows.Forms.Button ChangeDB;
+        private System.Windows.Forms.Label label14;
     }
 }
 
