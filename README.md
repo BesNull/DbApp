@@ -11,5 +11,5 @@ C:\Users\GoodPC\Downloads\DbApp-master\Release (Manual path adding)\Database1.md
 
 Данные админа в базе.
 
-![Alt text](BesNull/DbApp/blob/2e11cbbbe40dfe6127c5865375f672b0a94465f0/UserUI.JPG?raw=true "Optional Title")
-https://github.com/
+![Alt text](https://github.com/BesNull/DbApp/blob/2e11cbbbe40dfe6127c5865375f672b0a94465f0/UserUI.JPG?raw=true "Optional Title")
+
